@@ -16,8 +16,7 @@ export const Brands = ({brandArray, title}) => {
     return(
         <div className="section">
             <h3>{title}</h3>
-            {brandArray && brandArray.map((brand) => <Brand numberOfCars={brand.numberOfCars} name={brand.name}/> )}
+            {brandArray && brandArray.map((brand, index) => <Brand key={index} numberOfCars={brand.numberOfCars} name={brand.name}/> )}
         </div>
     )
-
 }
