@@ -18,12 +18,21 @@ const brands = [
     }
 ]
 
+let brandArray = []
+CARS.forEach((car) => {
+    if (!brandArray.find((brand) => brand.name.toLowerCase() === car.brand.toLowerCase())){
+        brandArray = [...brandArray, {name: car.brand}]
+
+    }
+})
+
+
 function App() {
     return (
         <div>
             <Cars cars={CARS} title="Auto's"/>
             <List title={"een test lijst"} items={items}/>
-            <Brands brandArray={brands} title={"test merken"} />
+            <Brands brandArray={brandArray} title={"test merken"} />
         </div>
     )
         ;
