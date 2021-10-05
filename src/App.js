@@ -20,15 +20,18 @@ const brands = [
 
 let brandArray = []
 CARS.forEach((car) => {
-    const brand = brandArray.find((brand) => brand.name.toLowerCase() === car.brand.toLowerCase())
+    const brand = brandArray.find((item) => item?.name?.toLowerCase() === car.brand.toLowerCase())
     if (!brand) {
-        brandArray = [...brandArray, {name: car.brand, numberOfCars: 1}]
+        const obj ={name: car.brand, numberOfCars: 1}
+        brandArray = car.type ? [...brandArray, {...obj, types:[car.type]}] : [...brandArray, {...obj}]
         return
     }
-    brandArray = [...brandArray.filter((item) => item.name !== brand.name), {
-        ...brand,
-        numberOfCars: brand.numberOfCars + 1
-    }]
+        const typeArray = brand.types ? !brand.types.find((type) => car.type.toLowerCase() === type.toLowerCase())
+            ? [...brand.types, car.type]
+            : [...brand.types]
+            : [car.type]
+        const obj = {...brand, numberOfCars: brand.numberOfCars + 1, types: [...typeArray]}
+    brandArray = [...brandArray.filter((item) => item.name !== brand.name), {...obj}]
 })
 
 
