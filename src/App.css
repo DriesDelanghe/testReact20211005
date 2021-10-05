@@ -31,3 +31,6 @@ body {
   width: 45%;
 }
 
+ul li {
+  text-align: left;
+}
