@@ -1,28 +1,29 @@
 import './App.css';
-import {CARS, NUMBER_DATA, PERSON_DATA} from "./ data/data";
-import {Numbers} from "./components/Numbers";
+import {CARS} from "./ data/data";
 import {Cars} from "./components/Cars";
-import {Persons} from "./components/Person";
-import {Cities, City} from "./components/City";
-import {citiesFromPersonData} from "./utilities/person_utilities";
 import {List} from "./components/List";
-import {Brand} from "./components/Brand";
+import {Brand, Brands} from "./components/Brand";
 
 const items = [
     "een", "twee", "drie", "vier", "vijf", "zes"
 ]
 
-const brand = {
-    name: 'Opel',
-    numberOfCars: 23
-}
+const brands = [
+    {
+        name: 'Opel',
+        numberOfCars: 23
+    }, {
+        name: 'BMW',
+        numberOfCars: 11
+    }
+]
 
 function App() {
     return (
         <div>
             <Cars cars={CARS} title="Auto's"/>
             <List title={"een test lijst"} items={items}/>
-            <Brand name={brand.name} numberOfCars={brand.numberOfCars}/>
+            <Brands brandArray={brands} title={"test merken"} />
         </div>
     )
         ;
